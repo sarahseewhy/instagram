@@ -3,4 +3,4 @@ class CommentsController < ApplicationController
 		@post = Post.find params[:post_id]
 		@comment = Comment.new
 	end
-end`
+end

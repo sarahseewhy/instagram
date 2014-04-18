@@ -1,4 +1,5 @@
 # used alexpeattie specs from https://github.com/alexmakers/instagram-feb/blob/master/spec/features/comment_feature_spec.rb
+require 'spec_helper'
 
 describe 'commenting on posts' do
   let!(:post) { create(:post) }
@@ -22,6 +23,6 @@ describe 'commenting on posts' do
 
     visit '/posts'
     click_link '1 comment'
-    expect(page).to have_content 'My coffee!'
+    expect(page).to have_content 'coffee nerd'
   end
 end
