@@ -13,14 +13,20 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   has_and_belongs_to_many :tags
+  
+
   def tag_names
     tags.map(&:name).join
   end
 
   def tag_names=(tag_names)
     tag_names.split(' ').uniq.each do |tag_name|
-      tag = Tag.find_or_create_by(name: tag_name)
+      tag_name.prepend('#') unless tag_name[0] == '#'
+      tag = Tag.find_or_create_by(name: tag_name.downcase)
       tags << tag
     end
   end
+
+
+
 end

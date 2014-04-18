@@ -83,8 +83,13 @@ describe 'posts index page' do
 				click_link '#wtf'
 				expect(page).not_to have_content 'Hello world'
 			end
+
+			it 'uses a pretty URL' do 
+				visit '/posts'
+				click_link '#wtf'
+
+				expect(current_path).to eq '/tags/wtf'
+			end
 		end
 	end
-
-
 end
