@@ -2,8 +2,13 @@ Instagram::Application.routes.draw do
   get 'tags/show'
   resources :tags, only: [:show, :destroy]
 
+  devise_for :users
+  root 'posts#index'
+  resources :tags, only: [:show]
+
   resources :posts do
     resources :comments
+    resources :charges
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

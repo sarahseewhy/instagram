@@ -38,6 +38,8 @@ gem 'aws-sdk', '~> 1.5.7'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 group :development, :test do
 	gem 'rspec-rails'
