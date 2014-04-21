@@ -1,25 +1,10 @@
-<% if @posts.any? %>
-	<% @posts.each do |post| %>
-	<div class="column"> 
-		<div class="col-sm-6 col-md-4">
-			<div class="thumbnail">
-				<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-				<div class="caption">
-					<h3><%= post.description %></h3>
-						<p/>
-							<% post.tags.each do |tag| %>	
-								<%= link_to tag.name, tag_path(tag) %>
-							<% end %>
-						</p>
-						<p>
-							<%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %></p>
-							<%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
-				</div>
-			</div>
-		</div>
-	</div>
-	<% end %>	
-<% else %>
-	No posts yet
-<% end %>
+<div class="row">
+	<% if @posts.any? %>
+		<% @posts.each do |post| %>
+			<%= render 'post', { post: post} %> 
+		<% end %>	
+	<% else %>
+		No posts yet
+	<% end %>
+</div>
 

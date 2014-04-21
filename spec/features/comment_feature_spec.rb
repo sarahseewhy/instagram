@@ -12,7 +12,7 @@ describe 'commenting on posts' do
   it 'adds the new comment' do
     visit '/posts'
     click_link 'Add a comment'
-    fill_in 'Comment', with: 'What a great picture'
+    fill_in 'Comment', with: 'coffe nerd'
     click_button 'Create Comment'
 
     expect(page).to have_content '1 comment'
