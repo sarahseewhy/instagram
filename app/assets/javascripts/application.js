@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require inputosaurus
 //= require_tree .
-
+//= require jquery.ui.all
