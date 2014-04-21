@@ -1,7 +1,6 @@
 class ChargesController < ApplicationController
 	
 	def new
-		@post = Post.find params[:post_id]
 	end
 
 	def create
@@ -9,7 +8,7 @@ class ChargesController < ApplicationController
 	  @amount = 500
 
 	  customer = Stripe::Customer.create(
-	    :email => 'example@stripe.com', # :stripeEmail did not work: "Your API key is invalid, as it contains whitespace"
+	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
 	  )
 
@@ -17,9 +16,10 @@ class ChargesController < ApplicationController
 	    :customer    => customer.id,
 	    :amount      => @amount,
 	    :description => 'Instabean coffee',
-	    :currency    => 'usd'
+	    :currency    => 'gbp'
 	  )
 
+	  # Order.create(post_id, user_id, price, quantity)
 	  flash[:notice] = 'Thanks for the $5!'
 	  redirect_to '/posts'
 
