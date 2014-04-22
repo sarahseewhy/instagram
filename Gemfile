@@ -40,6 +40,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+gem 'devise'
 
 group :development, :test do
 	gem 'rspec-rails'
