@@ -11,15 +11,15 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Instabean</a>
+      <a class="navbar-brand" href="/posts">Instabean</a>
     </div>
-    <button type="button" class="btn btn-default navbar-btn">Sign in</button>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+      <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn'%>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-default navbar-btn'%>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-default navbar-btn'%>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

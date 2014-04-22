@@ -54,15 +54,6 @@ describe 'posts index page' do
 			end
 		end
 
-		describe 'deleting a post' do 
-			it 'permenantly deletes a post' do
-				visit '/posts'
-				click_link 'Delete'
-	
-				expect(page).not_to have_content 'cool pic'
-			end
-		end
-
 	end
 
 	context 'with post with tags' do 

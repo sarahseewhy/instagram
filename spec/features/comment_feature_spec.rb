@@ -18,7 +18,7 @@ describe 'commenting on posts' do
     expect(page).to have_content '1 comment'
   end
 
-  it 'displays comments', js: true do
+  xit 'displays comments', js: true do
     create(:comment, post: post)
 
     visit '/posts'
