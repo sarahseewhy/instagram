@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'Uploading photos' do 
+	before do
+		login_as create(:sarah)
+	end
+	
 	it 'displays the image on the post page' do 
 		visit '/posts/new'
 		fill_in 'Description', with: 'Awesome pic'

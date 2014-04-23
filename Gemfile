@@ -42,6 +42,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'devise'
 
+gem 'geocoder'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'

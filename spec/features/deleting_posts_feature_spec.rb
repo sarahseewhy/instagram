@@ -19,19 +19,17 @@ describe 'deleting posts' do
 		let(:sarah) { create(:sarah) }
 
 		before do
-			login_as create(:sarah)
+			login_as sarah
 		end
 
 		describe "attempting to delete Alex's post" do
 
 			it 'displays an error' do
-				sarah = create(:sarah)
-				create(:post, user: sarah)
+				alex = create(:alex)
+				create(:post, user: alex)
 
 				visit '/posts'
-				click_link 'Delete'
-
-				expect(page).to have_content 'Error'	
+				expect(page).not_to have_link 'Delete'	
 			end
 		end
  	
@@ -42,7 +40,7 @@ describe 'deleting posts' do
 
 				visit '/posts'
 				click_link 'Delete'
-				expect(page).to have_content 'Successfully deleted'
+				expect(page).to have_content 'successfully deleted'
 				expect(page).not_to have_content 'cool pic'
 			end
 		end

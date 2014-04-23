@@ -10,6 +10,10 @@ describe 'posts index page' do
 	end
 
 	describe 'adding a post' do
+		before do
+			login_as create(:sarah)
+		end
+
 		context 'valid post' do # why put the context here?
 			it 'is added to the posts page' do
 				visit '/posts/new'
@@ -40,7 +44,6 @@ describe 'posts index page' do
 				expect(page).to have_content '#fml, #wtf'
 			end
 		end
-
 	end
 
 

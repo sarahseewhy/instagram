@@ -1,7 +1,7 @@
 Instagram::Application.routes.draw do
 
   devise_for :users
-  root 'post#index'
+  root 'posts#index'
   resources :tags, only: [:show, :destroy]
 
   resources :posts do
