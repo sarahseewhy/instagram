@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require inputosaurus
+//= require gmaps
 //= require_tree .
 
