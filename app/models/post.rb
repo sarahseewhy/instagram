@@ -15,7 +15,10 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :tags
   has_many :comments
   belongs_to :user
+
   
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
 
   def tag_names
     tags.map(&:name).join
