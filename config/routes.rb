@@ -7,6 +7,7 @@ Instagram::Application.routes.draw do
   resources :posts do
     resources :comments
     resources :charges
+    resources :map
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
