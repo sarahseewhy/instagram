@@ -3,9 +3,16 @@
 </div>
 
 <script>
-new GMaps({
+var map = new GMaps({
   div: '#map',
-  lat: -12.043333,
-  lng: -77.028333
+  lat: <%= @post.latitude %>,
+  lng: <%= @post.longitude %>
 });
+
+map.addMarker({
+  lat: <%= @post.latitude %>,
+  lng: <%= @post.longitude %>,
+  title: '<%= @post.description %>'
+});
+
 </script>

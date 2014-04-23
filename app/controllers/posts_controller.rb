@@ -9,8 +9,17 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
+	def show
+		@post = Post.find params[:id]
+
+		respond_to do |format|
+			format.html
+			format.json { render json: @post }
+		end
+	end
+
 	def create
-		@post = Post.new params[:post].permit(:description, :picture, :tag_names) 
+		@post = Post.new params[:post].permit(:description, :picture, :tag_names, :address) 
 		@post.user = current_user
 
 
